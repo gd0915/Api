@@ -4,6 +4,7 @@ import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,28 +42,41 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
         spec.pathParam("first", "todos");
 
         //Set the expected data
-        Map<String, Object> expectedData = new HashMap<>();
-        expectedData.put("userId", 666);
-        expectedData.put("title", "Tidy your room");
-        expectedData.put("completed", false);
-        //expectedData.put("StatusCode", 201);
-        System.out.println("Expected data = " + expectedData);
+        //1st Way:
+//        Map<String, Object> expectedData = new HashMap<>();
+//        expectedData.put("userId", 666);
+//        expectedData.put("title", "Tidy your room");
+//        expectedData.put("completed", false);
+//                    //expectedData.put("StatusCode", 201);
+//        System.out.println("Expected data = " + expectedData);
+
+        //2nd Way:
+        JsonPlaceHolderTestData expectedData = new JsonPlaceHolderTestData();
+        Map<String, Object> expectedDataMap = expectedData.expectedDataSetUp(666, "Tidy your room", false);
+        //By using test_data class object, we did test method clean, and also it is easy to maintenance
+        //Easy to update and run with different data
 
         //Sent the request and get the response
-        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
+        Response response = given().
+                                    spec(spec).
+                                    auth().
+                                    basic("admin", "1234").
+                                    contentType(ContentType.JSON).
+                                    body(expectedDataMap).
+                                    when().
+                                    post("/{first}");
         System.out.println(response.prettyPrint());
 
         //Not to type contentType(ContentType.JSON) may cause an error or hide some data on the console
-         expectedData.put("StatusCode", 201);
+         expectedDataMap.put("StatusCode", 201);
 
         //Do Assertion
         Map<String, Object> actualData = response.as(HashMap.class);
         System.out.println("Actual data = " + actualData);
 
-        assertEquals(expectedData.get("StatusCode"), response.getStatusCode());
-        assertEquals(expectedData.get("completed"), actualData.get("completed"));
-        assertEquals(expectedData.get("userId"), actualData.get("userId"));
-        assertEquals(expectedData.get("title"), actualData.get("title"));
+        assertEquals(expectedDataMap.get("StatusCode"), response.getStatusCode());
+        assertEquals(expectedDataMap.get("userId"), actualData.get("userId"));
+        assertEquals(expectedDataMap.get("title"), actualData.get("title"));
 
     }
 }
