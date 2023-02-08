@@ -45,7 +45,7 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
         //Set the request body
         JsonPlaceHolderTestData requestBody = new JsonPlaceHolderTestData();
-        Map<String, Object> requestBodyMap = requestBody.expectedDataSetUp(10, "quis eius est sint explicabo", true);
+        Map<String, Object> requestBodyMap = requestBody.expectedDataSetUpForPut(10, "quis eius est sint explicabo", true);
 
         //Send the request and get the response
         Response response = given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().put("/{first}/{second}");
@@ -87,24 +87,5 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

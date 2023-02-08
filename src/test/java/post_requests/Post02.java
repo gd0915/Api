@@ -52,7 +52,7 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
 
         //2nd Way:
         JsonPlaceHolderTestData expectedData = new JsonPlaceHolderTestData();
-        Map<String, Object> expectedDataMap = expectedData.expectedDataSetUp(666, "Tidy your room", false);
+        Map<String, Object> expectedDataMap = expectedData.expectedDataSetUpForPut(666, "Tidy your room", false);
         //By using test_data class object, we did test method clean, and also it is easy to maintenance
         //Easy to update and run with different data
 
