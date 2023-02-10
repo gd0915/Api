@@ -75,6 +75,31 @@ public class ApiNotes {
     $.store.book[2].price ==> we will get the value of price key of the second book (data)
 
 
+    ************
+    The biggest challenge in API  testing is data types
+    Because Api's using json data
+    Java use Object, Primitive, Maps...etc
+    Solution : Deserialization.
+    De-Serialization means you will get json data and convert it to Java object.
+
+    In API testing we are using Rest Assured Library. Rest Assured Library is in Java.
+    Api's use json data. If I use Java, data must be understood by Java.
+    So, I have to convert json data to data type which Java uses. ==>> De-Serialization
+
+    Notes   :
+    1)  Java uses Objects and Primitives as data type, API uses XML, Json, etc.
+        Java and API are using different data types, but they should communicate with each other.
+        Communication is impossible with different data types.
+
+        We have 2 options:
+    i)  Convert Json to Java Object  ==>> De-Serialization(mostly we do De-Serialization)
+    ii) Convert Java Object to Json ==>> Serialization
+
+       For Serialization and De-Serialization, we have 2 options:
+       a)GSON           : Google created it. By using Gson we can don Serialization adn De-Serialization
+       b)Object Mapper  : More popular
+     ************
+
 
 
 
