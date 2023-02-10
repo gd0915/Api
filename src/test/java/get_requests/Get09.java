@@ -12,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Get09 extends HerOkuAppBaseUrl {
     /*
-     /*
-        Given
+       Given
             https://restful-booker.herokuapp.com/booking/1
         When
             User send a GET request to the URL
