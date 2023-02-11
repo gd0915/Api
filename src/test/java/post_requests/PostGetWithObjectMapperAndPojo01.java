@@ -65,12 +65,14 @@ public class PostGetWithObjectMapperAndPojo01 extends HerOkuAppBaseUrl {
         response1.prettyPrint();
 
         //4.Create responseBodyPojo to get bookingid
+            ////I CONVERTED POST RESPONSE BODY TO JAVA OBJECT BY USING OBJECT MAPPER
         HerOkuAppPostResponseBodyPojo postResponseBodyInPojo = JsonUtil.convertJsonToJava(response1.asString(), HerOkuAppPostResponseBodyPojo.class);
         System.out.println(postResponseBodyInPojo);
 
+            //FROM postResponseBodyInPojo I GOT THE VALUE of bookingid by using GETTER of bookingid
         Integer bookingId = postResponseBodyInPojo.getBookingid();
 
-        //1.Set the Url for GET request(using bookingid)
+        //1.Set the Url for GET request(BY USING bookingid)
         spec.pathParams("first", "booking", "second", bookingId);
 
         //Note: No need to create expected data because the data which is sent in the POST request will be the expected data
@@ -80,9 +82,11 @@ public class PostGetWithObjectMapperAndPojo01 extends HerOkuAppBaseUrl {
         response2.prettyPrint();
 
         //3.Do Assertion
+            //I CONVERTED GET RESPONSE BODY TO JAVA OBJECT BY USING OBJECT MAPPER
         BookingPojo getResponseBodyInPojo = JsonUtil.convertJsonToJava(response2.asString(), BookingPojo.class);
         System.out.println("Actual Data = "+ getResponseBodyInPojo);
 
+            //BY USING requestbody and getResponseBodyInPojo, I DID ASSERTIONS
         assertEquals(200, response2.statusCode());
         assertEquals(requestBody.getFirstname(), getResponseBodyInPojo.getFirstname());
         assertEquals(requestBody.getLastname(), getResponseBodyInPojo.getLastname());
