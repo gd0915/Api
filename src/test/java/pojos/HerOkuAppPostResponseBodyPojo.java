@@ -5,23 +5,23 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HerOkuAppPostResponseBodyPojo {
 
-    private Integer bookingId;
+    private Integer bookingid;
     private BookingPojo booking;
 
     public HerOkuAppPostResponseBodyPojo() {
     }
 
-    public HerOkuAppPostResponseBodyPojo(Integer bookingId, BookingPojo booking) {
-        this.bookingId = bookingId;
+    public HerOkuAppPostResponseBodyPojo(Integer bookingid, BookingPojo booking) {
+        this.bookingid = bookingid;
         this.booking = booking;
     }
 
-    public Integer getBookingId() {
-        return bookingId;
+    public Integer getBookingid() {
+        return bookingid;
     }
 
-    public void setBookingId(Integer bookingId) {
-        this.bookingId = bookingId;
+    public void setBookingid(Integer bookingid) {
+        this.bookingid = bookingid;
     }
 
     public BookingPojo getBooking() {
@@ -35,8 +35,9 @@ public class HerOkuAppPostResponseBodyPojo {
     @Override
     public String toString() {
         return "HerOkuAppPostResponseBodyPojo{" +
-                "bookingId=" + bookingId +
+                "bookingid=" + bookingid +
                 ", booking=" + booking +
                 '}';
     }
 }
+
