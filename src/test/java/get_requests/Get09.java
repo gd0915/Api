@@ -1,6 +1,7 @@
 package get_requests;
 
 import base_urls.HerOkuAppBaseUrl;
+import com.google.gson.Gson;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +51,10 @@ public class Get09 extends HerOkuAppBaseUrl {
         //Send the request and get the response
         Response response = given().spec(spec).when().get("/{first}/{second}");
         System.out.println(response.prettyPrint());
+
+        //Serialization using Gson object
+//        Gson gson = new Gson();
+//        String javaToJson = gson.toJson(response.asString());
 
         //Do assertion
         Map<String, Object> actualData = response.as(HashMap.class);

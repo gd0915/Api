@@ -60,7 +60,7 @@ public class ApiNotes {
                 If we accept cookies, it will crate a local area in our local computer which we do not see and store our data here.
                 So our next visit in the same website will be faster because the website goes and take this data from there.
 
-    APIs can also user cookies.
+    APIs can also use cookies.
 
     Authorization   : Security level. Some APIs use just username and password => Based Authentication
                       But some APIs uses more complicated authorizations. => Role Based Authentication
@@ -75,7 +75,7 @@ public class ApiNotes {
     $.store.book[2].price ==> we will get the value of price key of the second book (data)
 
 
-    ************
+    ************API Challenge**********************************
     The biggest challenge in API  testing is data types
     Because Api's using json data
     Java use Object, Primitive, Maps...etc
@@ -102,6 +102,49 @@ public class ApiNotes {
 
 
 
+     ***********Authentication & Authorization ****************
+     Authentication : The process of verifying who a user is.
+     Authorization  : The process of verifying what the user has access to. It means the right to have access to Database or Server.
+
+
+
+
+
+
+
+
+
+
+
+
 
      */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

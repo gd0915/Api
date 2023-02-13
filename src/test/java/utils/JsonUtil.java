@@ -36,7 +36,7 @@ public class JsonUtil {
     /**
        <T> T ==>> Generic Method (instead of creating "public static HashMap<String, Object>convertJsonToJava(String json){}")
        If we type the method generic, we can convert the json data any data type like Set, Queue, HashMap
-       HashMap<String, Object> if we create method in this way, the method will return only HashMap, so we can only produce HahMap
+       HashMap<String, Object> if we create method in this way, the method will return only HashMap, so we can only produce HashMap
      */
 
 

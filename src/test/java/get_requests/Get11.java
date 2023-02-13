@@ -59,11 +59,12 @@ public class Get11 extends GoRestApiBaseUrl {
                 body("meta.pagination.limit", equalTo(10),
                 "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
                         "data.id", hasSize(10),
-                        "data.name", hasItems("Anish Dhawan","Lal Panicker","Vyas Ganaka"));
+                        "data.name", hasItems("Anish Dhawan","Lal Panicker","Giri Patel"));
 
         //The number of active users should be 5
         List<String> statusActiveList = json.getList("data.findAll{it.status==\"active\"}.status");
-        System.out.println("Number of active status users = " + statusActiveList.size());
+        //System.out.println("Number of active status users = " + statusActiveList.size());
+        assertEquals(5, statusActiveList.size());
 
         //The female users are more than male users
         List<String> allFemales = json.getList("data.findAll{it.gender==\"female\"}.gender");
@@ -79,7 +80,7 @@ public class Get11 extends GoRestApiBaseUrl {
         assertEquals(10, json.getList("data.id").size());
         assertTrue(json.getList("data.status").contains("active"));
 
-        List<String> expectedNameList = Arrays.asList("Anish Dhawan","Lal Panicker","Vyas Ganaka");
+        List<String> expectedNameList = Arrays.asList("Anish Dhawan","Lal Panicker","Giri Patel");
         assertTrue(json.getList("data.name").containsAll(expectedNameList)); //containsAll() method works with collection
 
 
