@@ -106,6 +106,8 @@ public class ApiNotes {
      Authentication : The process of verifying who a user is.
      Authorization  : The process of verifying what the user has access to. It means the right to have access to Database or Server.
 
+     To learn how to get token we need to read the Swagger documentation.
+
 
 
 
