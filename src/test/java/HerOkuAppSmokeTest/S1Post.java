@@ -2,6 +2,7 @@ package HerOkuAppSmokeTest;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import pojos.BookingDatesPojo;
@@ -53,6 +54,8 @@ public class S1Post extends HerOkuAppBaseUrl {
                 }
             }
      */
+
+    static int bookingId;
     @Test
     public void post(){
         //Set the Url
@@ -76,5 +79,12 @@ public class S1Post extends HerOkuAppBaseUrl {
         assertEquals(bookingDatesPojo.getCheckin(), actualData.getBooking().getBookingdates().getCheckin());
         assertEquals(bookingDatesPojo.getCheckout(), actualData.getBooking().getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
+
+        //Get the bookingid
+        // 1st Way: using JsonPath object
+//        JsonPath json = response.jsonPath();
+//        bookingId = json.getInt("bookingid");
+        //2nd Way:
+        bookingId = actualData.getBookingid();
     }
 }
