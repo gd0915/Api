@@ -1,6 +1,9 @@
 package get_requests;
 
-public class Get13 {
+import base_urls.GMIBankBaseUrl;
+import org.junit.jupiter.api.Test;
+
+public class Get13 extends GMIBankBaseUrl {
     /*
         Given
 	       http://www.gmibank.com/api/tp-customers/110452
@@ -42,4 +45,55 @@ public class Get13 {
                                         "accounts": []
                                     }
      */
+    /**
+     * Basic Authentication
+      Username = john_doe
+      Password = John.123
+     */
+    @Test
+    public void get13(){
+        //Set the Url
+        spec.pathParams("first", "tp-customers", "second", 110452);
+
+        //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
