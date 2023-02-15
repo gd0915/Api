@@ -36,7 +36,7 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
 
          //Send the request and get the response
          Response response = given().spec(spec).accept(ContentType.JSON).when().get("/{first}");
-         System.out.println(response.prettyPrint());
+         response.prettyPrint();
 
          //Do Assertion
          response.then().

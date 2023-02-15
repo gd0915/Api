@@ -1,12 +1,17 @@
 package get_requests;
 
 import base_urls.GMIBankBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.*;
+import static utils.AuthenticationGMIBank.generateToken;
 
 public class Get13 extends GMIBankBaseUrl {
     /*
         Given
-	       http://www.gmibank.com/api/tp-customers/110452
+	       https://www.gmibank.com/api/tp-customers/110452
         When
 	 		I send GET Request to the URL
 	 	Then
@@ -46,7 +51,7 @@ public class Get13 extends GMIBankBaseUrl {
                                     }
      */
     /**
-     * Basic Authentication
+     * GMI Bank Basic Authentication
       Username = john_doe
       Password = John.123
      */
@@ -55,9 +60,16 @@ public class Get13 extends GMIBankBaseUrl {
         //Set the Url
         spec.pathParams("first", "tp-customers", "second", 110452);
 
-        //
+        //Set the expected data
 
 
+        //Send the request and get the response
+        Response response = given().
+                                spec(spec).
+                                headers("Authorization", "Bearer "+generateToken()).
+                                when().
+                                get("/{first}/{second}");
+        response.prettyPrint();
 
 
 

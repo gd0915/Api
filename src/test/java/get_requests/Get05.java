@@ -32,7 +32,7 @@ public class Get05 extends HerOkuAppBaseUrl {
 
         //Send the request and get the response
         Response response = given().spec(spec).when().get("/{first}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Do Assertion
         response.then().assertThat().statusCode(200);

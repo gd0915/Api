@@ -35,7 +35,7 @@ public class Get03 extends JsonPlaceHolderBaseUrl {
 
         //Send the request and get the response
         Response response = given().spec(spec).when().get("/{first}/{second}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Do Assertion
         // instead of "application/json" we can use ContentType.JSON (Enum)

@@ -70,7 +70,7 @@ public class Post01 extends HerOkuAppBaseUrl {
 
         //Send the request and get the response
         Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Do Assertion
         Map<String, Object> actualData = response.as(HashMap.class);

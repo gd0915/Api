@@ -38,7 +38,7 @@ public class Get02 extends HerOkuAppBaseUrl {
 
         //Type automation script to send the request and get the response
         Response response = given().spec(spec).when().get("/{first}/{second}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Do Assertion
         response.then().assertThat().statusCode(404).statusLine("HTTP/1.1 404 Not Found");

@@ -65,7 +65,7 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
                                     body(expectedDataMap).
                                     when().
                                     post("/{first}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Not to type contentType(ContentType.JSON) may cause an error or hide some data on the console
          expectedDataMap.put("StatusCode", 201);

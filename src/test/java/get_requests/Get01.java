@@ -43,7 +43,7 @@ public class Get01 {
 
         //Type automation script to send the HTTP GET request and get the response
         Response response = given().when().get(url);
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
         System.out.println(response.getTime());// performance testing
         System.out.println(response.getHeaders());// all headers
         System.out.println(response.getContentType());

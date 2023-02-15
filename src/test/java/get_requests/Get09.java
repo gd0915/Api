@@ -50,7 +50,7 @@ public class Get09 extends HerOkuAppBaseUrl {
 
         //Send the request and get the response
         Response response = given().spec(spec).when().get("/{first}/{second}");
-        System.out.println(response.prettyPrint());
+        response.prettyPrint();
 
         //Serialization using Gson object
 //        Gson gson = new Gson();
